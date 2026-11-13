@@ -1,0 +1,20 @@
+{
+  "training_sha256": "323c2f84b4b613a9919dd866816e780624ce1416731aa3fef2975533ee66605f",
+  "system_sha256": "3b179c56b3cb56fc04facd9430382da014a377e92b4cbcbcd77d187b0f6bef1e",
+  "examples": 24,
+  "training_families": [
+    "median",
+    "surcharge"
+  ],
+  "steps_requested": 32,
+  "method": "AgentTune Project.train supervised LoRA r=4, scripted Go demonstrations",
+  "device": "mps",
+  "seed": 42,
+  "python": "3.12.14",
+  "torch": "2.15.0",
+  "transformers": "5.22.1",
+  "trl": "1.7.1",
+  "datasets": "5.2.0",
+  "peft": "0.19.1",
+  "split": "training surcharge and median; held-out invoice and event families"
+}

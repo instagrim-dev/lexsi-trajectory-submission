@@ -1,0 +1,45 @@
+{
+  "setup_attempts": [
+    {
+      "step": "install trl 1.7.1, datasets 3.6.0, AgentTune",
+      "status": "failed",
+      "reason": "dependency_conflict: trl requires datasets >=4.7.0",
+      "wall_seconds": null
+    },
+    {
+      "step": "install trl and AgentTune with dependency resolution",
+      "status": "cancelled",
+      "reason": "would downgrade installed torch 2.15.0 to 2.11.0",
+      "wall_seconds": null
+    },
+    {
+      "step": "install trl 1.7.1 with dependencies then AgentTune pinned commit without dependency replacement",
+      "status": "passed",
+      "wall_seconds": null
+    }
+  ],
+  "setup_wall_seconds": "not measured",
+  "training_attempts": 1,
+  "failed_training_attempts": 0,
+  "training_examples": 24,
+  "training_families": [
+    "surcharge",
+    "median"
+  ],
+  "evaluation_families": [
+    "finance",
+    "events"
+  ],
+  "exact_prompt_overlap": 0,
+  "exact_code_overlap": 0,
+  "exact_witness_overlap": 0,
+  "transfer_qualification": "Task families and surface forms differ, but abstract rounding and selection ambiguity overlap.",
+  "teacher_source": "hand-authored scripted Go programs and witnesses; no teacher model calls",
+  "teacher_tests": {
+    "tests": 2,
+    "go_workers": 1,
+    "go_workers_failed": 0,
+    "seconds": 0.779
+  },
+  "model_calls_for_training_data": 0
+}

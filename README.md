@@ -1,6 +1,24 @@
-# Learning where an agent is competent
+# Executable witnesses for ambiguous software requests
 
-Can experience change the space of transformations an agent is willing to reuse? We study empirical competence boundaries learned from verified results and counterexamples. The project also reports separate Cohere Tiny Aya and AgentTune evaluations; the Adaption Go pilot is a supplementary model comparison and is not a Tiny Aya training result.
+Can an agent demonstrate what a request leaves unresolved before it commits to a repair? We train Tiny Aya with AgentTune to ask targeted questions and construct two plausible Go implementations with a distinguishing input. We compare base and adapted Tiny Aya with a stronger Adaption generic control under the same task and tool budgets. The study is synthetic; see the complete results and limitations below.
+
+## Executable ambiguity study
+
+On 12 held-out Go assignments, including paired identical prompts with opposite intended rules and fully specified controls, neither the Tiny Aya base nor the AgentTune adapter completed an assignment. The stronger generic Adaption Gemma arm completed 5/12, submitted one incorrect repair, and asked four useful questions. All arms produced zero valid executable witnesses under the strict recorded interface. An offline diagnostic corrected unspecified JSON field spelling for five hosted-model examples: three ask actions then supplied valid distinguishing witnesses; their model-visible feedback and recorded completion results did not change. These three witnesses did not lead to completed repairs. [Full protocol, traces, failures and work accounting](ambiguity-study/README.md).
+
+| Work or outcome | Tiny Aya base | Tiny Aya adapter | Generic Adaption |
+|---|---:|---:|---:|
+| Accepted assignments | 0/12 | 0/12 | 5/12 |
+| Incorrect submitted repairs | 0 | 0 | 1 |
+| Useful questions | 0 | 0 | 4 |
+| Valid witnesses: strict / normalized diagnostic | 0 / 0 | 0 / 0 | 0 / 3 |
+| Model starts | 48 | 48 | 44 |
+| Checker calls / failures | 42 / 42 | 45 / 45 | 50 / 39 |
+| Go workers | 34 | 27 | 28 |
+
+The adapter was trained via AgentTune on 24 scripted examples for 32 steps (99.101 seconds; 24,141 training input tokens). Training and evaluation use different task families but related rounding and selection themes. The recorded interface did not specify witness field spelling or the worker's import restriction, and many outputs hit the shared length cap; a bounded offline import recheck found no complete matching candidates. Two case sets use one reference implementation, the simulated user uses documented phrase matching, and no physical effect was applied. The outcome does not show an improvement from the adapter or a complete autonomous BMO agent. The stronger generic control's corrected witnesses are a diagnostic observation, not a new trajectory or a demonstrated training benefit.
+
+The released [Tiny Aya adapter](https://huggingface.co/instagrim/lexsi-ambiguity-tiny-aya), synthetic cases, model and checker records, interrupted runs and diagnostics allow inspection of both successful and failed work. Known work is at least 143 inference dispatches (one with unknown usage), 194,037 input and 38,791 output inference tokens, 24,141 training input tokens, and 152 Go workers, before unrecorded preflight activity. Setup duration was not measured.
 
 ## Learning and falsifying a competence boundary
 

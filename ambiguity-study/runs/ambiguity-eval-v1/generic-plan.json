@@ -1,0 +1,23 @@
+{
+  "arm": "generic",
+  "baseline": "same model, prompt, tools, budgets, free questions, executable probes, and feedback; adapter differs",
+  "device_contract": "local Tiny Aya; MPS if available",
+  "max_new_tokens": 384,
+  "question_budget": 2,
+  "system_sha256": "3b179c56b3cb56fc04facd9430382da014a377e92b4cbcbcd77d187b0f6bef1e",
+  "tasks": [
+    "eval-finance-0-amb-line",
+    "eval-finance-0-amb-subtotal",
+    "eval-finance-0-clear-line",
+    "eval-finance-1-amb-line",
+    "eval-finance-1-amb-subtotal",
+    "eval-finance-1-clear-subtotal",
+    "eval-events-0-amb-earliest",
+    "eval-events-0-amb-latest",
+    "eval-events-0-clear-earliest",
+    "eval-events-1-amb-earliest",
+    "eval-events-1-amb-latest",
+    "eval-events-1-clear-latest"
+  ],
+  "turn_budget": 4
+}

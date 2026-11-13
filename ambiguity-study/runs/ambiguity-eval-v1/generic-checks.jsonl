@@ -1,0 +1,2 @@
+{"arm": "generic", "result": {"reason": "invalid_witness", "seconds": 0, "valid": false, "workers": 0}, "stage": "witness", "task": "eval-finance-0-amb-line", "training_code_repeated": false, "training_witness_repeated": false, "turn": 2}
+{"arm": "generic", "necessary": true, "question": "What is the correct rounding method for monetary results in the Compute function?", "stage": "question", "task": "eval-finance-0-amb-line", "turn": 2, "understood": false, "witness_linked": false}

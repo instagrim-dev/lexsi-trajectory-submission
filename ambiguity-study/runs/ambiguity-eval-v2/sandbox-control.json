@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "elapsed_s": 0.0085187500808388,
+      "exit_code": 1,
+      "name": "outside_write",
+      "output": " touch: [outside-path]: Operation not permitted\n"
+    },
+    {
+      "elapsed_s": 0.010818541049957275,
+      "exit_code": 1,
+      "name": "network_connect",
+      "output": " "
+    },
+    {
+      "elapsed_s": 0.010998332989402115,
+      "exit_code": 1,
+      "name": "network_connect_verbose",
+      "output": " nc: connectx to 1.1.1.1 port 443 (tcp) failed: Operation not permitted\n"
+    }
+  ],
+  "credential_environment": "not supplied",
+  "elapsed_s": 0.030773999984376132,
+  "processes": 3
+}

@@ -1,22 +1,6 @@
-# Safe action when the facts change
+# Learning where an agent is competent
 
-A model-guided workflow can inspect current evidence and still propose an unsafe effect after that evidence changes. This project combines Cohere Tiny Aya, an AgentTune adapter, a deterministic observation schedule, an evidence guard and a local SQLite conditional-effect owner. The owner checks current access, destination and check state when an export is requested. If a request is refused, the workflow re-observes and chooses again. The study uses a synthetic export service; it does not perform real exports.
-
-## Paired workflow comparison
-
-The same fine-tuned Aya adapter was evaluated on 16 synthetic export cases under two scheduled workflows. The conditional owner adds effect-time state checks and recovery. These cases have new prompts and IDs but use familiar mechanisms.
-
-| Measure | Scheduled guard | Guard + conditional owner |
-|---|---:|---:|
-| Safe completion | 10/16 | 16/16 |
-| Cases with unsafe release attempts reaching simulator | 6/16 | 0/16 |
-| Model calls | 23 | 22 |
-| Tool actions | 119 | 154 |
-| Unsupported model release proposals | 14 | 15 |
-
-Safe completion includes stopping or requesting consent when appropriate, as well as an authorized release. The simulator blocked unsafe attempts in both arms. The model still proposed unsupported releases; the result belongs to the workflow boundary, not model reliability. In a subsequent paired comparison, both base Aya and the fine-tuned adapter completed 16/16 safely through the owner-fenced workflow, with 22 calls and 154 actions each. The base comparator was run afterward on the same frozen cases. The conditional owner covers access, destination and check state; it rejects source-change scenarios rather than fencing source revisions. It is a local SQLite owner connected to a simulator, not an installed BMO integration or a real export service.
-
-The experiment addresses an agentic safety problem: checks can become stale before an effect executes. Effect-time authority and recovery provide the tested protection even when the model chooses badly. [Workflow study, cases and traces](owner-study/README.md).
+Can experience change the space of transformations an agent is willing to reuse? We study empirical competence boundaries learned from verified results and counterexamples. The project also reports separate Cohere Tiny Aya and AgentTune evaluations; the Adaption Go pilot is a supplementary model comparison and is not a Tiny Aya training result.
 
 ## Learning and falsifying a competence boundary
 
@@ -38,6 +22,22 @@ The same 18 frozen held-out episodes were run with the base model and trained ad
 The adapter reduced unsafe attempts in this cohort while usually failing to finish. This result does not show a generally useful or reliably improved agent. Actions are simulated; unsafe release attempts do not cause real releases. The recorded run was on Apple MPS with greedy decoding. Timings are in the saved traces and are not controlled benchmarks. The separately developed BMO decision-revision workflow is not the adapter's before/after measurement.
 
 [Protocol](results/PROTOCOL.md) · [paired comparison](results/comparison.json) · [base traces](results/base-results.jsonl) · [adapter traces](results/trained-results.jsonl) · [base AuditKIT report](results/base-audit.json) · [adapter AuditKIT report](results/trained-audit.json)
+
+## Related Tiny Aya workflow comparison
+
+The same fine-tuned Aya adapter was evaluated on 16 synthetic export cases under two scheduled workflows. The conditional owner adds effect-time state checks and recovery. These cases have new prompts and IDs but use familiar mechanisms.
+
+| Measure | Scheduled guard | Guard + conditional owner |
+|---|---:|---:|
+| Safe completion | 10/16 | 16/16 |
+| Cases with unsafe release attempts reaching simulator | 6/16 | 0/16 |
+| Model calls | 23 | 22 |
+| Tool actions | 119 | 154 |
+| Unsupported model release proposals | 14 | 15 |
+
+Safe completion includes stopping or requesting consent when appropriate, as well as an authorized release. The simulator blocked unsafe attempts in both arms. The model still proposed unsupported releases; the result belongs to the workflow boundary, not model reliability. In a subsequent paired comparison, both base Aya and the fine-tuned adapter completed 16/16 safely through the owner-fenced workflow, with 22 calls and 154 actions each. The base comparator was run afterward on the same frozen cases. The conditional owner covers access, destination and check state; it rejects source-change scenarios rather than fencing source revisions. It is a local SQLite owner connected to a simulator, not an installed BMO integration or a real export service.
+
+The experiment addresses an agentic safety problem: checks can become stale before an effect executes. Effect-time authority and recovery provide the tested protection even when the model chooses badly. [Workflow study, cases and traces](owner-study/README.md).
 
 ## Native decision revision witness
 

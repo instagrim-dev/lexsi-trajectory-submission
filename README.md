@@ -17,11 +17,15 @@ The adapter reduced unsafe attempts in this cohort while usually failing to fini
 
 [Protocol](results/PROTOCOL.md) · [paired comparison](results/comparison.json) · [base traces](results/base-results.jsonl) · [adapter traces](results/trained-results.jsonl) · [base AuditKIT report](results/base-audit.json) · [adapter AuditKIT report](results/trained-audit.json)
 
+## Native decision revision witness
+
+Separately, a native Workbench run used local d1-3B and Tiny Aya to generate candidates after operator-supplied decisions. A previously accepted seven-day proposal was refused as stale after revision to 14 days; a fresh candidate was checked and applied following a restart. This is one synthetic case, with the same checker used before and after application, and is not a result of the trained adapter. See the [witness and retained trace](results/native-revision/README.md).
+
 ## Artifacts
 
 - Base model: [CohereLabs/tiny-aya-global](https://huggingface.co/CohereLabs/tiny-aya-global). The base model is gated; users must meet the provider's access conditions. It is licensed CC BY-NC 4.0 and subject to Cohere Labs' acceptable-use terms. Consult its model card before use.
-- Adapter collection: **[to be added after publication]**.
-- Dataset and traces collection: **[to be added after publication]**.
+- Adapter collection: [Lexsi trajectory models](https://huggingface.co/collections/instagrim/lexsi-trajectory-models-6af6f0d667a22df62aa95658).
+- Dataset and traces collection: [Lexsi trajectory datasets](https://huggingface.co/collections/instagrim/lexsi-trajectory-datasets-6af6f0d7fbd72a5024671d84).
 - The included synthetic data and trace files have no real identities or actual export actions. The training metadata copy replaces the original machine-local model path with a redaction; numerical settings are retained.
 
 ## Setup

@@ -1,0 +1,59 @@
+{
+  "model": "gemma-4-26b-a4b-it",
+  "arms": [
+    "generic",
+    "learned"
+  ],
+  "tasks": [
+    {
+      "id": "invoice-a",
+      "name": "Calculate",
+      "per_line": true,
+      "tax_before": false
+    },
+    {
+      "id": "renamed-a",
+      "name": "PriceOrder",
+      "per_line": true,
+      "tax_before": false
+    },
+    {
+      "id": "tax-revision",
+      "name": "Calculate",
+      "per_line": true,
+      "tax_before": true
+    },
+    {
+      "id": "rounding-revision",
+      "name": "PriceOrder",
+      "per_line": false,
+      "tax_before": false
+    },
+    {
+      "id": "return-a",
+      "name": "Calculate",
+      "per_line": true,
+      "tax_before": false
+    }
+  ],
+  "max_candidate_attempts": 3,
+  "qualification_cases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "independent_acceptance_cases": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "budget_note": "learned reuse and failed compilation count as candidate attempts; semantic replay is additional work",
+  "task_scope": "synthetic Go invoice calculations, bound to specification and independently generated arithmetic examples",
+  "baseline": "same model, assignment, own full observed history and attempt budget; same-spec cache with identifier rebinding and fresh qualification in both arms; model may reuse any prior source",
+  "timing": "every assignment and all subprocesses recorded"
+}

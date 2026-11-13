@@ -18,9 +18,11 @@ Safe completion includes stopping or requesting consent when appropriate, as wel
 
 The experiment addresses an agentic safety problem: checks can become stale before an effect executes. Effect-time authority and recovery provide the tested protection even when the model chooses badly. [Workflow study, cases and traces](owner-study/README.md).
 
-## Next direction: rehearsal before authority
+## Learning and falsifying a competence boundary
 
-A proposed extension is to rehearse each candidate effect against small, relevant changes in authorization and requirements before it is eligible for application. A genuine failure would become an applicable retained counterexample that future candidates must pass before full qualification. The effect owner would still recheck live state at application, since rehearsals cannot predict every intervening change. This combines the conditional owner studied here with counterexample replay; the combined mechanism and its costs have not been evaluated in this study.
+We implemented a research prototype that infers a repair's empirical applicability from qualified successes and failures, narrows it after a counterexample, and replays retained behavioral examples before qualification. In a separate five-task Go pilot, we compared it against an Adaption Gemma baseline with the same history, checker, three-attempt ceiling and verified semantic cache, including harmless function renames. Both arms completed 5/5; generic used 6 candidate attempts, 4 model starts and 11 Go workers, while the learned arm used 8 attempts, 4 model starts and 15 Go workers. Generic had one qualification failure; the learned arm had two qualification failures and one replay rejection. The boundary narrowed after two changed-requirement failures, but no hypothesis-selected candidate completed a task. This is evidence that the prototype can refine an empirical boundary and replay a retained failure, not evidence of a reuse or cost advantage over the strong baseline. The observed 20.716 s versus 15.746 s assignment times are descriptive for one short stream, not a causal speedup.
+
+The semantic features were supplied by the fixture; no autonomous requirement extraction or production BMO integration is established. Cases and acceptance vectors are synthetic, and both sets use the same reference implementation. [Full methods, failed attempts, accounting, code and raw records](competence-study/README.md). The Adaption pilot is separate from the Cohere Tiny Aya fine-tuning and workflow evaluation above.
 
 ## Separate fine-tuning comparison
 

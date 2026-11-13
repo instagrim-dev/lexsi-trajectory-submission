@@ -1,0 +1,1 @@
+{"arm": "smoke", "cases": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "elapsed_s": 0.8973962919553742, "output": "PASS\nok  \t_<PROJECT>/runs/competence-real-task-smoke/checks/748297777343750\t0.007s\n\n", "passed": true, "returncode": 0, "source_hash": "0e6e3c99cac7fa412bbf1cc25479642a829267881762585f11c5e7af90be25eb", "stage": "go_control", "task": "invoice-a"}

@@ -1,0 +1,123 @@
+{
+  "counterexamples": {
+    "da56c3db565581b7132908b3029247e96a9ea091b000cd5b41b7106a22def7db": [
+      {
+        "case": {
+          "index": 0
+        },
+        "expected": 543,
+        "requirement": "{\"per_line\": true, \"tax_before\": true}"
+      },
+      {
+        "case": {
+          "index": 2
+        },
+        "expected": 2475,
+        "requirement": "{\"per_line\": true, \"tax_before\": true}"
+      },
+      {
+        "case": {
+          "index": 3
+        },
+        "expected": 397,
+        "requirement": "{\"per_line\": true, \"tax_before\": true}"
+      },
+      {
+        "case": {
+          "index": 4
+        },
+        "expected": 23,
+        "requirement": "{\"per_line\": true, \"tax_before\": true}"
+      },
+      {
+        "case": {
+          "index": 1
+        },
+        "expected": 28,
+        "requirement": "{\"per_line\": false, \"tax_before\": false}"
+      },
+      {
+        "case": {
+          "index": 4
+        },
+        "expected": 22,
+        "requirement": "{\"per_line\": false, \"tax_before\": false}"
+      }
+    ]
+  },
+  "observations": {
+    "16cea23d2486ad9d33cce48c9122c51dc20eb828c2ba14ad27363a8f1c0807e4": [
+      {
+        "case": {
+          "task": "tax-revision"
+        },
+        "expected": "accepted",
+        "features": {
+          "per_line": true,
+          "tax_before": true
+        },
+        "valid": true
+      }
+    ],
+    "da56c3db565581b7132908b3029247e96a9ea091b000cd5b41b7106a22def7db": [
+      {
+        "case": {
+          "task": "invoice-a"
+        },
+        "expected": "accepted",
+        "features": {
+          "per_line": true,
+          "tax_before": false
+        },
+        "valid": true
+      },
+      {
+        "case": {
+          "task": "renamed-a"
+        },
+        "expected": "accepted",
+        "features": {
+          "per_line": true,
+          "tax_before": false
+        },
+        "valid": true
+      },
+      {
+        "case": {
+          "mismatches": "--- FAIL: TestCandidate (0.00s)\n    candidate_test.go:42: case=0 got=541 want=543\n    candidate_test.go:44: case=2 got=2435 want=2475\n    candidate_test.go:45: case=3 got=386 want=397\n    candidate_test.go:46: case=4 got=21 want=23\nFAIL\nexit status 1\nFAIL\t_<PROJECT>/runs/competence-matched-v2/checks/748319963338958\t0.005s\n\n",
+          "task": "tax-revision"
+        },
+        "expected": "qualified",
+        "features": {
+          "per_line": true,
+          "tax_before": true
+        },
+        "valid": false
+      },
+      {
+        "case": {
+          "mismatches": "--- FAIL: TestCandidate (0.00s)\n    candidate_test.go:43: case=1 got=30 want=28\n    candidate_test.go:46: case=4 got=21 want=22\nFAIL\nexit status 1\nFAIL\t_<PROJECT>/runs/competence-matched-v2/checks/748322839605625\t0.005s\n\n",
+          "task": "rounding-revision"
+        },
+        "expected": "qualified",
+        "features": {
+          "per_line": false,
+          "tax_before": false
+        },
+        "valid": false
+      },
+      {
+        "case": {
+          "task": "return-a"
+        },
+        "expected": "accepted",
+        "features": {
+          "per_line": true,
+          "tax_before": false
+        },
+        "valid": true
+      }
+    ]
+  },
+  "version": 1
+}

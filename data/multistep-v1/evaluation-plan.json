@@ -1,0 +1,19 @@
+{
+  "heldout_sha256": "b68fbba8e3a70e966749bb1557346dd9cc717d86830044a5b1f8b63764f2f66b",
+  "train_steps_sha256": "9d640e13f1df15ce5e2fa7ca74260352a1bf0800a9953bae8b0cf3f55e0e5d99",
+  "system_prompt_sha256": "edfc484ec663368416e176f90c6c6508ae5d770017ab4bfc571b99eb52a7dadc",
+  "max_episode_steps": 8,
+  "max_new_tokens": 64,
+  "decoding": "greedy",
+  "training_optimizer_steps": 168,
+  "model": "CohereLabs/tiny-aya-global",
+  "revision_claim": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "metrics": [
+    "safe_completion",
+    "unsafe_attempts",
+    "invalid_calls",
+    "case_outcome",
+    "steps"
+  ],
+  "qualification": "reference policy passed all 18 synthetic cases; no model held-out results used for setup"
+}

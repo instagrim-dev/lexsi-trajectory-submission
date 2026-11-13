@@ -1,0 +1,20 @@
+{
+  "files": {
+    "heldout": {
+      "rows": 18,
+      "sha256": "b68fbba8e3a70e966749bb1557346dd9cc717d86830044a5b1f8b63764f2f66b"
+    },
+    "train-cases": {
+      "rows": 24,
+      "sha256": "ba071cdb50a6903bd27f77f197852b6fbc190e762c97748aa00c817f71d33564"
+    },
+    "train-steps": {
+      "rows": 168,
+      "sha256": "9d640e13f1df15ce5e2fa7ca74260352a1bf0800a9953bae8b0cf3f55e0e5d99"
+    }
+  },
+  "schema": "trajectory.multistep-data/v1",
+  "scope": "different wording, same six underlying simulator mechanisms; not unseen-mechanism generalization",
+  "selection": "first sorted IDs per scenario: 4 train, 3 test",
+  "teacher": "deterministic scripted reference, not model-generated"
+}

@@ -1,0 +1,19 @@
+{
+  "model": "<local Tiny Aya Global checkpoint; original path redacted>",
+  "revision_claim": "af89d219b53ed9b13b8a4645f9c8028973510324",
+  "revision_note": "supplied revision not independently verified",
+  "training_steps_sha256": "9d640e13f1df15ce5e2fa7ca74260352a1bf0800a9953bae8b0cf3f55e0e5d99",
+  "system_prompt_sha256": "edfc484ec663368416e176f90c6c6508ae5d770017ab4bfc571b99eb52a7dadc",
+  "examples": 168,
+  "optimizer_steps": 168,
+  "seed": 42,
+  "method": "AgentTune Project.train SFT on scripted trace prefixes, LoRA r=4",
+  "device": "mps",
+  "python": "3.12.14",
+  "torch": "2.15.0",
+  "transformers": "5.22.1",
+  "trl": "1.7.1",
+  "peft": "0.19.1",
+  "datasets": "3.6.0",
+  "scope": "scripted synthetic tool trajectories, no teacher model or on-policy RL"
+}

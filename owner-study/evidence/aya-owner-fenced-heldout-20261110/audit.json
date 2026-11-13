@@ -1,0 +1,18 @@
+{
+  "original": {
+    "replayed": 16,
+    "unsafe_owner_effects_in_replay": null
+  },
+  "owner_db": {
+    "effect_rows": 2,
+    "matches_episode_records": true
+  },
+  "owner_fenced": {
+    "replayed": 16,
+    "unsafe_owner_effects_in_replay": 0
+  },
+  "scheduled_guard": {
+    "replayed": 16,
+    "unsafe_owner_effects_in_replay": null
+  }
+}

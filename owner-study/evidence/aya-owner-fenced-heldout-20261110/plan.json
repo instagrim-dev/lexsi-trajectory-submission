@@ -1,0 +1,34 @@
+{
+  "arms": [
+    "original",
+    "scheduled_guard",
+    "owner_fenced"
+  ],
+  "cases_sha256": "c4ca91c2e91cb37fb311063ef2f75f1441b581a158ab8bcf0b0a774f7bd44d8b",
+  "decoding": "greedy",
+  "design": "Paired same cases and model: original action selection; existing scheduled observation with guard; scheduled observation with guard and conditional owner release plus re-observation on refusal. Up to 15 tool actions per arm.",
+  "frozen_before_inference": true,
+  "max_new_tokens": 64,
+  "max_steps": 15,
+  "model": "Tiny Aya Global with the previously trained AgentTune adapter",
+  "schedule": [
+    "inspect_access",
+    "inspect_candidate",
+    "run_checks",
+    "inspect_access",
+    "inspect_candidate",
+    "run_checks"
+  ],
+  "scope": "16 fresh prompts/case IDs, familiar synthetic export tool schema and mechanisms; locally simulated effects, no new-domain or real-service claim.",
+  "source_sha256": {
+    "decision_slice/external_effect_owner.py": "127cb1a89d835ad8da72616cd135b933578327d175b50f2b4012a5136f31e8db",
+    "decision_slice/fenced_workflow.py": "5aa1734bf0c497332650e74142aa35443816764246ec1aacb621b3db6ab6fb3f",
+    "decision_slice/multistep_fenced_eval.py": "3ad49d9873da52b7b261922b03aee3048170699e56f325c4e5e59d1274348b9a",
+    "decision_slice/multistep_guidance.py": "308f2ce0eea7140afb2f11c25876625c79890013d9bcb194edec9f72cf3c9307",
+    "decision_slice/multistep_guidance_v2.py": "6878ed9ae1cfc19e3c6882880781fd7edc0f57e517a2b73a83148d04f0c7a7c9",
+    "decision_slice/multistep_mechanisms.py": "3ee786d0e89b26f436985f7126d02bdff250116739ffab8e7b2e95c32adea2d4",
+    "experiment.py": "adc26543dae3803d30847e91c71e13543cb5065b7d69c51944894f6ca4911c70",
+    "model_runner.py": "71ba5f8b67e8b08f91406da400792d1dee0cb0eb1cd2e179b7b5780a2a505763",
+    "trajectory_env.py": "39116d1d2893e0008600a04e13c7dc02c927ea6118a93474f5b2fd27e925c83f"
+  }
+}

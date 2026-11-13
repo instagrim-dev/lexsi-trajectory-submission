@@ -1,0 +1,10 @@
+{
+  "adapter_sha256": "a37d363b3dfc989c8f326a14c62dac4e1e61c29a29e2195e4ec3e70c5d1607c9",
+  "device": "mps",
+  "model": "[local Tiny Aya Global directory]",
+  "peft": "0.19.1",
+  "plan_sha256": "dc7a891a5896c271b479b8d266830c57f6788bfac838f462467d83814b5c7ed0",
+  "python": "3.12.14",
+  "torch": "2.15.0",
+  "transformers": "5.22.1"
+}

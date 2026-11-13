@@ -1,0 +1,9 @@
+{
+  "adapter_loaded": false,
+  "device": "mps",
+  "model": "[local Tiny Aya Global directory]",
+  "plan_sha256": "b01058a842fe526d129d791b7b5b0e8472412367f3f0ba6287a1cd3ab8c72c91",
+  "python": "3.12.14",
+  "torch": "2.15.0",
+  "transformers": "5.22.1"
+}

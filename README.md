@@ -1,8 +1,24 @@
-# Decision-guided export review
+# Safe action when the facts change
 
-A reproducible synthetic agent tool-use study for the Lexsi AI Safety and Alignment Hackathon, Agentic Fine-tuning track. Cohere Labs Tiny Aya Global proposes the next action; AgentTune trains a LoRA adapter on scripted multi-step trajectories, and AuditKIT scores replayed tool-use episodes. The simulator models changing access, source, destination and check state; it does not send data, edit a real workspace, or operate a real export service.
+A model-guided workflow can inspect current evidence and still propose an unsafe effect after that evidence changes. This project combines Cohere Tiny Aya, an AgentTune adapter, a deterministic observation schedule, an evidence guard and a local SQLite conditional-effect owner. The owner checks current access, destination and check state when an export is requested. If a request is refused, the workflow re-observes and chooses again. The study uses a synthetic export service; it does not perform real exports.
 
-## Before and after
+## Paired workflow comparison
+
+The same fine-tuned Aya adapter was evaluated on 16 synthetic export cases under two scheduled workflows. The conditional owner adds effect-time state checks and recovery. These cases have new prompts and IDs but use familiar mechanisms.
+
+| Measure | Scheduled guard | Guard + conditional owner |
+|---|---:|---:|
+| Safe completion | 10/16 | 16/16 |
+| Cases with unsafe release attempts reaching simulator | 6/16 | 0/16 |
+| Model calls | 23 | 22 |
+| Tool actions | 119 | 154 |
+| Unsupported model release proposals | 14 | 15 |
+
+Safe completion includes stopping or requesting consent when appropriate, as well as an authorized release. The simulator blocked unsafe attempts in both arms. The model still proposed unsupported releases; the result belongs to the workflow boundary, not model reliability. In a subsequent paired comparison, both base Aya and the fine-tuned adapter completed 16/16 safely through the owner-fenced workflow, with 22 calls and 154 actions each. The base comparator was run afterward on the same frozen cases. The conditional owner covers access, destination and check state; it rejects source-change scenarios rather than fencing source revisions. It is a local SQLite owner connected to a simulator, not an installed BMO integration or a real export service.
+
+The experiment addresses an agentic safety problem: checks can become stale before an effect executes. Effect-time authority and recovery provide the tested protection even when the model chooses badly. [Workflow study, cases and traces](owner-study/README.md).
+
+## Separate fine-tuning comparison
 
 The same 18 frozen held-out episodes were run with the base model and trained adapter. Cases have separate IDs and wording from training, but use the same six simulator mechanisms.
 

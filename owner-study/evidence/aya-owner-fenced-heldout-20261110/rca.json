@@ -1,0 +1,25 @@
+{
+  "action_counts": {
+    "inspect_access": 53,
+    "inspect_candidate": 36,
+    "run_checks": 52,
+    "stop": 2
+  },
+  "episodes": 18,
+  "identical_repeated_observations": 78,
+  "initial_reference_prefix": 18,
+  "interpretation": "Repeated same-action/same-response observations count does not prove each check was unnecessary; terminal-choice mismatch is directly observed.",
+  "seventh_actions": {
+    "inspect_access": 7,
+    "inspect_candidate": 6,
+    "run_checks": 4,
+    "stop": 1
+  },
+  "source": "evidence/agenttune-multistep-20261103/trained-results.jsonl",
+  "total_actions": 143,
+  "training_actions_after_six_observations": {
+    "propose_release": 8,
+    "stop": 16
+  },
+  "training_examples_after_six_observations": 24
+}

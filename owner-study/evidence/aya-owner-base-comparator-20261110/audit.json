@@ -1,0 +1,6 @@
+{
+  "ledger_matches_traces": true,
+  "owner_effect_rows": 2,
+  "replayed": 16,
+  "unsafe_effects_in_replay": 0
+}

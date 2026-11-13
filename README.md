@@ -18,6 +18,10 @@ Safe completion includes stopping or requesting consent when appropriate, as wel
 
 The experiment addresses an agentic safety problem: checks can become stale before an effect executes. Effect-time authority and recovery provide the tested protection even when the model chooses badly. [Workflow study, cases and traces](owner-study/README.md).
 
+## Next direction: rehearsal before authority
+
+A proposed extension is to rehearse each candidate effect against small, relevant changes in authorization and requirements before it is eligible for application. A genuine failure would become an applicable retained counterexample that future candidates must pass before full qualification. The effect owner would still recheck live state at application, since rehearsals cannot predict every intervening change. This combines the conditional owner studied here with counterexample replay; the combined mechanism and its costs have not been evaluated in this study.
+
 ## Separate fine-tuning comparison
 
 The same 18 frozen held-out episodes were run with the base model and trained adapter. Cases have separate IDs and wording from training, but use the same six simulator mechanisms.
